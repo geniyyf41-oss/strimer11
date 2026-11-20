@@ -26,11 +26,13 @@ jobs:
       - name: Extract ZIP
         run: unzip -q streamcontrol-build-ready.zip
 
+
       - name: Build JAR
         working-directory: streamcontrol-mod
         run: |
           chmod +x gradlew
-          ./gradlew build
+          ./gradlew build --no-configuration-cache
+
 
       - name: Upload finished JAR
         uses: actions/upload-artifact@v4
